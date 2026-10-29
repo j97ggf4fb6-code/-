@@ -629,3 +629,28 @@ let last=performance.now();
 if(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=4){lite=true;sun.castShadow=false;R.setPixelRatio(1)}reset();started=true;$('ov').style.display='none';run=true;toast('左：移動　右：視点　フック／ガス／斬る');
 addEventListener('resize',()=>{R.setSize(innerWidth,innerHeight);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()});
 </script></body></html>
+<script>
+  // 画面全体のダブルタップによるズームを強制禁止
+  document.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+    let now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  // 画面全体・ボタン全ての長押し（虫眼鏡メニュー）を強制禁止
+  window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+  document.documentElement.style.webkitTouchCallout = 'none';
+  document.documentElement.style.webkitUserSelect = 'none';
+</script>
+
