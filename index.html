@@ -12,7 +12,8 @@ canvas{display:block}
 #ar{position:fixed;top:calc(52px + env(safe-area-inset-top,0px));left:50%;margin-left:-14px;width:28px;text-align:center;color:#ff6a50;font-size:24px;text-shadow:0 1px 3px #000;pointer-events:none}
 .bar{width:140px;height:10px;background:#0008;border:1px solid #fff5;border-radius:5px;overflow:hidden;margin-top:5px}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,#3a9cff,#9ff);width:100%}
-.btn{position:fixed;border-radius:50%;background:#000a;border:2px solid #fffb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:15px;touch-action:none}
+.btn{position:fixed;border-radius:50%;background:#000a;border:2px solid #fffb;border-radius:50%;color:#fff;-webkit-touch-callout:none;touch-action:manipulation;}
+
 .btn.on{background:#c33a}
 #hook{right:18px;bottom:calc(40px + env(safe-area-inset-bottom,0px));width:92px;height:92px}
 #gas{right:122px;bottom:calc(24px + env(safe-area-inset-bottom,0px));width:72px;height:72px}
